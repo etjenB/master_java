@@ -1,3 +1,8 @@
+import Classes.Calculator;
+import Classes.Student;
+
+import java.util.Random;
+
 public class Main {
     public Main() {
     }
@@ -59,5 +64,74 @@ public class Main {
         byte not = 6;
         int roknot = ok * not;
         System.out.println(roknot);
+
+        System.out.println("\nSwitch----------------------");
+        switch (ok){
+            case 3:
+                System.out.println("3");
+                break;
+            case 4:
+                System.out.println("4");
+                break;
+            case 5:
+                System.out.println("5");
+                break;
+            default:
+                break;
+        }
+
+        System.out.println("\nFor----------------------");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("|");
+        }
+
+        System.out.println("\nByte op----------------------");
+        int hn = 3;
+        int nnh = 6;
+        int rhnnnh = (~hn & nnh) | (hn & ~nnh);
+        System.out.println(rhnnnh);
+
+        System.out.println("\nOOP----------------------");
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.Addition(3,2));
+        System.out.println(calculator.Addition(3,3,null));
+        System.out.println(calculator.Addition(3,3,3));
+        System.out.println(calculator.Addition(3.3f, 3.4f));
+
+        System.out.println("\nArrays----------------------");
+        int[] nums = new int[4];
+        nums = new int[]{3, 4, 5, 9};
+        System.out.println(nums[2]);
+        nums[2] = (int)3.4;
+        System.out.println(nums[2]);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i]);
+        }
+        System.out.println();
+        System.out.println(nums); //pointer duh...
+        for (int n : nums){
+            System.out.print(n);
+        }
+        System.out.println();
+        int[] nums2 = new int[4];
+        for (int i = 0; i < nums.length; i++) {
+            nums2[i] = (new Random()).nextInt(0, 100);
+        }
+        for (int n : nums2){
+            System.out.print(n + " ");
+        }
+        System.out.println();
+        Student[] students = new Student[4];
+        for (int i = 0; i < students.length; i++){
+            students[i] = new Student();
+            students[i].MatrikulationNumber = (new Random()).nextInt(100000, 999999);
+            students[i].Name = "";
+            for (int j = 0; j < 5; j++) {
+                students[i].Name += (char)(new Random()).nextInt(65, 90);
+            }
+        }
+        for (Student s : students) {
+            System.out.println(s.Name + " " + s.MatrikulationNumber);
+        }
     }
 }
