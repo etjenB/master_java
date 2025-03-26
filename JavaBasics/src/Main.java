@@ -1,4 +1,6 @@
 import Classes.Calculator;
+import Classes.Inheritance.AdvCalc;
+import Classes.Inheritance.Calc;
 import Classes.Student;
 
 import java.util.Random;
@@ -133,5 +135,22 @@ public class Main {
         for (Student s : students) {
             System.out.println(s.Name + " " + s.MatrikulationNumber);
         }
+
+        System.out.println("\nStrings----------------------");
+        String fe = "grdgrd"; //Immutable - stored in memory as a constant and cannot be changed
+        StringBuffer rhdr = new StringBuffer("grdgrd"); //Mutable
+        rhdr.append(" hhh");
+        System.out.println(rhdr);
+
+        System.out.println("\nInheritance----------------------");
+        Calc calc = new Calc();
+        int r1 = calc.addition(4, 5);
+        int r2 = calc.subtraction(7, 3);
+        AdvCalc advCalc = new AdvCalc();
+        int r3 = advCalc.multiplication(5, 3);
+        int r4 = advCalc.division(15, 4);
+        System.out.println("Addition result: " + r1 + " | Subtraction result: " + r2 + " | Multiplication result: " + r3 + " | Division result: " + r4);
+
+
     }
 }
