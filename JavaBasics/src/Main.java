@@ -1,6 +1,11 @@
 import Classes.Calculator;
 import Classes.Inheritance.AdvCalc;
 import Classes.Inheritance.Calc;
+import Classes.Inheritance.SciCalc;
+import Classes.Object.Flat;
+import Classes.Object.Flat2;
+import Classes.Object.House;
+import Classes.Object.House2;
 import Classes.Student;
 
 import java.util.Random;
@@ -149,8 +154,43 @@ public class Main {
         AdvCalc advCalc = new AdvCalc();
         int r3 = advCalc.multiplication(5, 3);
         int r4 = advCalc.division(15, 4);
-        System.out.println("Addition result: " + r1 + " | Subtraction result: " + r2 + " | Multiplication result: " + r3 + " | Division result: " + r4);
+        int r5 = advCalc.addition(4, 99);
+        SciCalc sciCalc = new SciCalc();
+        double r6 = sciCalc.power(3,7);
+        int r7 = sciCalc.division(50, 2);
+        int r8 = sciCalc.subtraction(50, 2);
+        System.out.println("Addition result: " + r1 +
+                " | Subtraction result: " + r2 +
+                " | Multiplication result: " + r3 +
+                " | Division result: " + r4 +
+                " | Addition result 2: " + r5 +
+                " | Power result: " + r6 +
+                " | Division result 2: " + r7 +
+                " | Subtraction result 2: " + r8);
 
+        System.out.println("\nFinal/Constants----------------------");
+        int num = 8;
+        num = 10;
+        System.out.println(num);
+        final int numm = 666;
+        //numm = 555; ERROR so final is basically const from C#
+        System.out.println(numm);
 
+        System.out.println("\nOverride built in methods----------------------");
+        Flat flat1 = new Flat(54, "Street 4");
+        Flat flat2 = new Flat(54, "Street 4");
+        //false because it compares if they are the same objects in memory, not comparing the attributes values
+        System.out.println(flat1.equals(flat2));
+        Flat2 flat3 = new Flat2(54, "Street 4");
+        Flat2 flat4 = new Flat2(54, "Street 4");
+        //true because of the override of equals method of parent Object class
+        System.out.println(flat3.equals(flat4));
+
+        House house1 = new House(234, "Street 666");
+        //prints default toString from parent Object class
+        System.out.println(house1);
+        House2 house2 = new House2(234, "Street 666");
+        //prints override toString
+        System.out.println(house2);
     }
 }
