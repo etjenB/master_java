@@ -1,12 +1,16 @@
+import Classes.AbstractAnonymousClass.AbstractAnonymousClass;
 import Classes.Calculator;
 import Classes.Inheritance.AdvCalc;
 import Classes.Inheritance.Calc;
 import Classes.Inheritance.SciCalc;
+import Classes.InnerClass.ClassA;
 import Classes.Object.Flat;
 import Classes.Object.Flat2;
 import Classes.Object.House;
 import Classes.Object.House2;
+import Classes.Second;
 import Classes.Student;
+import Interfaces.IFirst;
 
 import java.util.Random;
 
@@ -192,5 +196,66 @@ public class Main {
         House2 house2 = new House2(234, "Street 666");
         //prints override toString
         System.out.println(house2);
+
+        System.out.println("\nInner class----------------------");
+        ClassA classA = new ClassA(1);
+        ClassA.ClassB classB = classA.new ClassB(99);
+        classB.printValueOfB();
+
+        System.out.println("\nInner anonymous class----------------------");
+        ClassA classA2 = new ClassA(69){
+            public void printValueOfA(){
+                System.out.println("Value of A");
+            }
+        };
+        classA2.printValueOfA();
+
+        System.out.println("\nAbstract anonymous class----------------------");
+        AbstractAnonymousClass abstractAnonymousClass = new AbstractAnonymousClass() {
+            public void printHeart() {
+                System.out.println("<3");
+            }
+        };
+        abstractAnonymousClass.printHeart();
+
+        System.out.println("\nEnums----------------------");
+        enum Status{
+            Running,
+            Failed,
+            Pending,
+            Success
+        }
+        System.out.println(Status.Running);
+        System.out.println(Status.values()[1]);
+        System.out.println(Status.Pending.ordinal());
+
+        System.out.println("\nEnums advanced----------------------");
+        enum Phone{
+            iPhone(1000),
+            Pixel(990),
+            Galaxy(1100);
+
+            private int price;
+
+            Phone(int price) {
+                this.price = price;
+            }
+
+            public int getPrice() {
+                return price;
+            }
+
+            public void setPrice(int price) {
+                this.price = price;
+            }
+        }
+
+        System.out.println("Phone: " + Phone.Pixel + " | Price: " + Phone.Pixel.getPrice());
+        Phone.Pixel.setPrice(950);
+        System.out.println("Phone: " + Phone.Pixel + " | Price: " + Phone.Pixel.getPrice());
+
+        System.out.println("\nFunctional interface----------------------");
+        IFirst internet = new Second();
+        internet.printSomething();
     }
 }
